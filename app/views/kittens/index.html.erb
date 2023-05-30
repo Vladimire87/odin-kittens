@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 class="flex bg-info-subtle text-center">Kittens</h1>
+  <p> <%=link_to 'Create Kitty', new_kitten_path  %></p>
+  <% @kittens.each do |kitten| %>
+    <div class="bg-dark bg-gradient text-white p-3 mb-3">
+      <p>Kitty Name: <%= content_tag :span, kitten.name, class: 'fw-semibold' %>
+        <%= link_to  "Show", kitten_path(kitten) %>
+      </p>
+      <%= button_to "Delete", kitten_path(kitten), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
+    </div>
+  <% end %>
+</div>
