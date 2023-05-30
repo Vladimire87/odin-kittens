@@ -1,24 +1,5 @@
-# README
+# Project: Kittens API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- This project is a learning exercise focused on building a Kitten application using HTML and JSON API. The goal is to create a Rails application that can be accessed both through a web browser and programmatically via an API.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- https://www.theodinproject.com/lessons/ruby-on-rails-kittens-api
