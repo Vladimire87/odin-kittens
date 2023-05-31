@@ -33,11 +33,11 @@ name = [
   'Lord Snugglebottom'
 ]
 
-age = rand(1..15)
-
-cuteness = rand(1..10)
-softness = rand(1..10)
-
 15.times do
-  Kitten.create(name: name.sample, age:, cuteness:, softness:)
+  Kitten.create(
+    name: name.sample,
+    age: rand(1..15),
+    cuteness: rand(1..10),
+    softness: rand(1..10)
+  )
 end
