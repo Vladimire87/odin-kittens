@@ -1,4 +1,9 @@
-<div class="container">
+<div class="container p-3">
+  <% flash.each do |type, msg| %>
+    <div class="container p-3 text-center alert alert-info">
+      <%= msg %>
+    </div>
+  <% end %>
   <%= content_tag :h2, "Kitty id: #{@kitten.id}"%>
   <p>Kitty name: <span class="fw-semibold"><%= @kitten.name%></span></p>
   <p>Kitty Age: <span class="fw-semibold"><%= @kitten.age%></span></p>
@@ -8,6 +13,6 @@
   <p><%= link_to 'Edit Kitty', edit_kitten_path %></p>
   <p><%= link_to 'Home', kittens_path %></p>
   <div>
-    <%= button_to "Delete", kitten_path(@kitten), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
+    <%= button_to "Delete", kitten_path(@kitten),class: 'btn btn-primary', form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
   </div>
 </div>

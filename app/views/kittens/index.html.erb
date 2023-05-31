@@ -1,12 +1,17 @@
 <div class="container">
-  <h1 class="flex bg-info-subtle text-center">Kittens</h1>
+  <h1 class="bg-info-subtle text-center p-2">Kittens</h1>
+  <% flash.each do |type, msg| %>
+    <div class="container p-3 text-center alert alert-info">
+      <%= msg %>
+    </div>
+  <% end %>
   <p> <%=link_to 'Create Kitty', new_kitten_path  %></p>
   <% @kittens.each do |kitten| %>
-    <div class="bg-dark bg-gradient text-white p-3 mb-3">
+    <div class="bg-warning-subtle p-3 mb-3">
       <p>Kitty Name: <%= content_tag :span, kitten.name, class: 'fw-semibold' %>
-        <%= link_to  "Show", kitten_path(kitten) %>
+        <%= link_to "Show", kitten_path(kitten) %>
+        <%= button_to "Delete", kitten_path(kitten), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
       </p>
-      <%= button_to "Delete", kitten_path(kitten), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
     </div>
   <% end %>
 </div>

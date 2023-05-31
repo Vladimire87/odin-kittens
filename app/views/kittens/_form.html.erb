@@ -8,16 +8,24 @@
     </ul>
   </div>
 <% end %>
-<%= form_for @kitten do |f| %>
-  <div class="col-md-3">
-    <%= f.label :name, "Kitty Name", class: 'mb-2' %>
-    <%= f.text_field :name, class: 'form-control form-control-lg mb-3' %>
-    <%= f.label :age, "Kitty Age", class: 'mb-2' %>
-    <%= f.number_field :age, class: 'form-control form-control-lg mb-3' %>
-    <%= f.label :cuteness, "Kitty Cuteness", class: 'mb-2' %>
-    <%= f.number_field :cuteness, class: 'form-control form-control-lg mb-3' %>
-    <%= f.label :softness, "Kitty Softness", class: 'mb-2' %>
-    <%= f.number_field :softness, class: 'form-control form-control-lg mb-3' %>
-    <%= f.submit 'Save', class: 'btn btn-primary'%>
+<% flash.each do |type, msg| %>
+  <div class="container p-3 text-center alert alert-info">
+    <%= msg %>
   </div>
+<% end %>
+<%= form_for @kitten do |f| %>
+  <div class="col-md-3 p-5">
+    <%= f.label :name, "Kitty Name", class: 'mb-2' %>
+    <%= f.text_field :name, class: 'form-control mb-3' %>
+    <%= f.label :age, "Kitty Age", class: 'mb-2' %>
+    <%= f.number_field :age, class: 'form-control mb-3' %>
+    <%= f.label :cuteness, "Kitty Cuteness", class: 'mb-2' %>
+    <%= f.number_field :cuteness, class: 'form-control mb-3' %>
+    <%= f.label :softness, "Kitty Softness", class: 'mb-2' %>
+    <%= f.number_field :softness, class: 'form-control mb-3' %>
+    <%= f.submit 'Save', class: 'btn btn-primary form-control'%>
+  </div>
+<% end %>
+<% if @kitten.persisted? %>
+  <%= button_to 'Delete', kitten_path(@kitten),class: 'btn btn-primary mt-3', form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
 <% end %>
